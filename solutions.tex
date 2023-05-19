@@ -1,0 +1,50 @@
+\documentclass[a4paper, 12pt]{scrartcl}
+
+\usepackage[
+  margin=1in,
+  footskip=.6in,
+  headheight=33pt,
+]{geometry}
+\input{packages}
+\usepackage[print-solutions]{mystyles}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\fancyhead[L]{%
+  \includegraphics[height=24pt]{static/mszo-768x267.png}
+  \quad
+  \begin{tabular}[b]{l}Mechatronika\\Szakosztály\end{tabular}
+}
+\fancyhead[R]{%
+  Matematika G2 2ZH konzi \\
+  \textsl{Készítette:} Sándor Tibor
+}
+
+\renewcommand\headrulewidth{1mm}
+\renewcommand\footrulewidth{1mm}
+
+\setlength\parskip{.33em}
+\setlength\parindent{0em}
+
+\usepackage[shortlabels]{enumitem}
+
+\begin{document}
+
+\maketitle
+\allowdisplaybreaks
+
+\input{exercise/power-series-convergence}
+\input{exercise/power-series-TF}
+\input{exercise/taylor-series-finite}
+\input{exercise/taylor-series-infinite}
+\input{exercise/fourier-trig}
+\input{exercise/fourier-square}
+\input{exercise/limit}
+\input{exercise/derivative}
+\input{exercise/stationary}
+\input{exercise/lagrange-multiplier.tex}
+\input{exercise/integral-basic}
+\input{exercise/integral-area}
+
+\end{document}

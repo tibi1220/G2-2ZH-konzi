@@ -1,0 +1,73 @@
+\documentclass[xcolor={table},aspectratio=1610]{beamer}
+
+\input{packages}
+\usepackage{qrcode}
+\usepackage{mystyles}
+
+% Beamer general settings
+\usetheme{Frankfurt}
+\institute{Mechatronika szakosztály}
+% \logo{\includegraphics[height=1cm]{mszo-logo.pdf}}
+
+\mode<presentation>
+\setbeamercovered{transparent}
+\usefonttheme[onlymath]{serif}
+\setbeamersize{text margin left=1.5cm,text margin right=1.5cm}
+
+\titlegraphic{\includegraphics[scale=.25]{static/mszo-768x267.png}}
+% \logo{\includegraphics[]{static/mszo-768x267.png}}
+% \setbeamertemplate{headline}{\hfill\includegraphics[width=1.5cm]{static/mszo-768x267.png}\hspace{0.2cm}\vspace{-1cm}}
+
+
+\usepackage{ragged2e}
+\addtobeamertemplate{block begin}{}{\justifying}
+\addtobeamertemplate{frametitle}{}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north east,yshift=-6mm] at (current page.north east) {
+      \includegraphics[height=10mm]{static/mszo-768x267.png}
+    };
+  \end{tikzpicture}\vspace{-6mm}}
+
+% Document begins here
+\begin{document}
+
+% Titlepage
+\frame{\titlepage}
+
+% About -- the structure of the consultation
+\begin{frame}
+  \frametitle{A konzultáció felépítése}
+  \framesubtitle{\;}
+  \tableofcontents
+\end{frame}
+
+\input{presentation/1}
+\input{presentation/2}
+
+\begin{frame}
+  \frametitle{\;}
+  \framesubtitle{\;}
+
+  \centering
+  {
+    \LARGE\bfseries
+    Köszönöm szépen a figyelmet!
+  }
+  \\[5mm]
+  Értékelő form:
+  \\[2mm]
+  % \qrcode[height=1.25in]{https://forms.gle/LINK-GOES-HERE}
+  % \\[2mm]
+  % \href
+  % {https://forms.gle/LINK-GOES-HERE}
+  % {https://forms.gle/LINK-GOES-HERE}
+
+  \vfill
+  \small
+
+  Linkek: \input{config/links}
+\end{frame}
+
+\end{document}
+
+\end{document}

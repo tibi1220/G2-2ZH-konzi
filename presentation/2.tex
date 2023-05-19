@@ -1,0 +1,386 @@
+\section{Többváltozós analízis}
+
+\subsection{Alapfogalmak}
+
+\begin{frame}
+  \frametitle{Többváltozós analízis}
+  \framesubtitle{Többváltozós függvények}
+
+  \begin{block}{$\rvec f: \mathbb R^n \rightarrow \mathbb R^k$ függvény általános alakja}
+    \def\arraystretch{1.2}
+    \[
+      \begin{bmatrix}
+        x_1 \\ x_2 \\ \vdots \\ x_n
+      \end{bmatrix}
+      \mapsto
+      \rvec f (x_1; x_2; \dots; x_n)
+      :=
+      \begin{bmatrix}
+        f_1 (x_1; x_2; \dots; x_n) \\
+        f_2 (x_1; x_2; \dots; x_n) \\
+        \vdots                     \\
+        f_k (x_1; x_2; \dots; x_n) \\
+      \end{bmatrix}
+    \]
+    $\mathbb R^n$ -- értelmezési tartomány, \hfill
+    $\mathbb R^k$ -- értékkészlet, \hfill
+    $f_k$ -- komponens függvények.
+  \end{block}
+
+  \begin{block}{Gömbkörnyezet}
+    Legyen $\rvec p \in \mathbb R^n$, ekkor a $\rvec p$ pont $\varepsilon$
+    sugarú (nyílt) gömbkörnyezetén a
+    \[
+      B_\varepsilon(\rvec p) :=
+      \Big\{\;
+      \rvec x \in \mathbb R^n \;\Big|\; |\rvec x − \rvec p| < \varepsilon
+      \;\Big\}\Big.
+    \]
+    halmazt értjük.
+  \end{block}
+\end{frame}
+
+\subsection{Határérték számítás}
+
+\begin{frame}
+  \frametitle{Többváltozós analízis}
+  \framesubtitle{Határérték számítás I}
+
+  \begin{block}{Határérték}
+    Legyen $\rvec f: \mathbb R^n \rightarrow \mathbb R^k$ leképezés. Azt
+    mondjuk, hogy az $\rvec f$ Határértéke az $\rvec a \in \mathbb R^n$ pontban
+    $\rvec A \in \mathbb R^k$, ha $\rvec A$ tetszőleges $\varepsilon$ sugarú
+    gömbkörnyezetéhez létezik $\rvec a$-nak olyan $\sigma(\varepsilon)$ sugarú
+    gömbkörnyezete, hogy:
+    \[
+      \rvec f \left(
+      B_{\sigma(\varepsilon)}(\rvec a))
+      \right)
+      \subset
+      B_\varepsilon(\rvec A)
+      \text.
+    \]
+  \end{block}
+
+  \begin{block}{Folytonosság}
+    Azt mondjuk, hogy az $\rvec f: \mathbb R^n \rightarrow \mathbb R^k$
+    leképezés folytonos az értelmezési tartományának egy belső $\rvec a \in
+      \mathbb R^n$ pontjában, ha az $\rvec a$ pontbeli határérték megegyezik az
+    adott pontbeli függvényértékkel, vagyis
+    \[
+      \lim_{\rvec x \rightarrow \rvec a} \rvec f(\rvec x) = \rvec f(\rvec a)
+      \text.
+    \]
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Többváltozós analízis}
+  \framesubtitle{Határérték számítás II}
+
+  \begin{block}{Átviteli elv}
+    Az $\rvec f: \mathbb R^n \rightarrow \mathbb R^k$ leképezés határértéke az
+    $\rvec a \in \mathbb R^n$ pontban $\rvec A \in \mathbb R^k$, akkor és csak
+    akkor, ha bármeny $\rvec x_n \rightarrow \rvec a$ ($n \rightarrow \infty$)
+    pontsorozat esetén $\rvec f (\rvec x_n) \rightarrow \rvec A$.
+  \end{block}
+
+  \begin{block}{Görbe menti odatartás}
+    Ha az $(x_o, y_0)$ pontban keressük a határértéket, akkor felírunk egy
+    olyan függvénykapcsolatot, melyre $y_0 = f(x_0)$ teljesül.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Többváltozós analízis}
+  \framesubtitle{Határérték számítás III}
+
+  \begin{block}{Odatartás sorrendisége}
+    \[
+      \lim_{x \rightarrow x_0}
+      \lim_{y \rightarrow y_0}
+      \rvec f(x; y)
+      \overset{?}{=}
+      \lim_{y \rightarrow y_0}
+      \lim_{x \rightarrow x_0}
+      \rvec f(x; y)
+    \]
+  \end{block}
+
+  \begin{block}{Origóba tartás}
+    \begin{itemize}
+      \item Spirál mentén:
+            \[
+              \left.
+              \begin{array}{c}
+                x = r_n \cos \varphi_n \\
+                y = r_n \sin \varphi_n
+              \end{array}
+              \right\}
+              \text{ ahol }
+              r_n \rightarrow 0
+            \]
+      \item Polinom mentén: \[
+              y = m \,x^k
+            \]
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Többváltozós analízis}
+  \framesubtitle{Határértékes feladat}
+
+  \input{exercise/limit}
+\end{frame}
+
+\subsection{Deriválás}
+
+\begin{frame}
+  \frametitle{Többváltozós analízis}
+  \framesubtitle{Deriválás I}
+
+  \begin{block}{Iránymenti derivált}
+    Legyen $H \subset \mathbb R^n$, nyílt halmaz, $f: H \rightarrow \mathbb R$,
+    valamint $\uvec v$ egységvektor. Ha létezik a
+    \[
+      \lim_{\lambda \rightarrow 0^+}
+      \frac{f(\rvec a - \lambda \uvec v) - f(\rvec a)}{\lambda}
+    \]
+    határérték, és egy valós szám, akkor azt az $f$ függvény $\rvec a$ pontbeli,
+    $\uvec v$ irányú iránymenti deriváltjának nevezzük.
+    Jele: $\partial_{\uvec v} f(\rvec a)$.
+  \end{block}
+
+  \begin{block}{Parciális derivált}
+    Olyan speciális iránymenti derivált, ahol az irány valamelyik bázis. Jele:
+    \[
+      \pdv{f(\rvec x)}{x_i}
+      \text{, vagy }
+      \partial_{x_i} f(\rvec x)
+    \]
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Többváltozós analízis}
+  \framesubtitle{Deriválás II}
+
+  \begin{block}{Gradiens}
+    Az $f: \mathbb R^n \rightarrow \mathbb R$ függvény gradiense:
+    \def\arraystretch{1.4}
+    \newcommand\ds{\displaystyle}
+    \[
+      \grad f(\rvec x) = \begin{bmatrix}
+        \partial_{x_1} f(\rvec x) \\
+        \partial_{x_2} f(\rvec x) \\
+        \vdots                    \\
+        \partial_{x_n} f(\rvec x) \\
+      \end{bmatrix} = \begin{pmatrix}
+        \ds\pdv{f(\rvec x)}{x_1} &
+        \ds\pdv{f(\rvec x)}{x_2} &
+        \hdots                   &
+        \ds\pdv{f(\rvec x)}{x_n}
+      \end{pmatrix}^{\mathsf T}
+    \]
+
+    A gradiens egy adott pontban megadja a függvény legnagyobb növekedés
+    irányába mutató irányvektort.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Többváltozós analízis}
+  \framesubtitle{Deriválás III}
+
+  \begin{block}{Jacobi mátrix}
+    Az $\rvec f: \mathbb R^n \rightarrow \mathbb R^k$ függvény Jacobi-mátrixa:
+    \def\arraystretch{1.4}
+    \newcommand\ds{\displaystyle}
+    \[
+      \rmat J_{\rvec f(\rvec x)}
+      =
+      \begin{bmatrix}
+        \grad^{\mathsf T} f_1(\rvec x) \\
+        \grad^{\mathsf T} f_2(\rvec x) \\
+        \vdots                         \\
+        \grad^{\mathsf T} f_k(\rvec x) \\
+      \end{bmatrix}
+      =
+      \begin{bmatrix}
+        \partial_1 f_1 & \partial_2 f_1 & \hdots & \partial_n f_1 \\
+        \partial_1 f_2 & \partial_2 f_2 & \hdots & \partial_n f_2 \\
+        \vdots         & \vdots         & \ddots & \vdots         \\
+        \partial_1 f_k & \partial_2 f_k & \hdots & \partial_n f_k \\
+      \end{bmatrix}
+    \]
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Többváltozós analízis}
+  \framesubtitle{Deriválás IV}
+
+  \begin{block}{Iránymenti derivált számítása a gradiens segítségével}
+    Első derivált:
+    \[
+      \pdv{f}{\uvec e}
+      = \uvec e \cdot \grad f
+      = e_1 \pdv{f}{x_1} + e_2 \pdv{f}{x_2} + \dots + e_n \pdv{f}{x_n}
+    \]
+    Magasabb rendű derivált:
+    \[
+      \pdv[order={n+1}]{f}{\uvec e}
+      = \uvec e \cdot \grad \pdv[order={n}]{f}{\uvec e}
+    \]
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Többváltozós analízis}
+  \framesubtitle{Derivált geometriai jelentése I}
+
+  \begin{block}{Adott iránybeli érintő egyenes}
+    Az $f: \mathbb R^2 \rightarrow \mathbb R$ függvény $\uvec e$ irányú
+    érintőjének egyenlete az $\rvec x_0 = (x_0; y_0)$ pontban:
+    \[
+      \frac{x - x_0}{e_x} =
+      \frac{y - y_0}{e_y} =
+      \frac{z - f(\rvec x_0)}{\partial_{\uvec e} f(\rvec x_0)}
+    \]
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Többváltozós analízis}
+  \framesubtitle{Derivált geometriai jelentése II}
+
+  \begin{block}{Felületi normális}
+    \newcommand\ds{\displaystyle}
+    Az $f: \mathbb R^2 \rightarrow \mathbb R$ függvény felületi normálisa
+    adott $\rvec x_0$ pontban:
+    \[
+      \rvec n_\text{be} = \begin{pmatrix}
+        \ds\pdv{f(\rvec x_0)}{x} & \ds\pdv{f(\rvec x_0)}{y} & -1
+      \end{pmatrix}^{\mathsf T}
+      \qquad
+      \rvec n_\text{ki} = \begin{pmatrix}
+        -\ds\pdv{f(\rvec x_0)}{x} & -\ds\pdv{f(\rvec x_0)}{y} & 1
+      \end{pmatrix}^{\mathsf T}
+    \]
+  \end{block}
+
+  \begin{block}{Érintősík}
+    Az $f: \mathbb R^2 \rightarrow \mathbb R$ függvény érintősíkja
+    adott $\rvec x_0 = (x_0; y_0)$ pontban:
+    \[
+      \pdv{f(\rvec x_0)}{x} (x - x_0) +
+      \pdv{f(\rvec x_0)}{y} (y - y_0) =
+      z - f(\rvec x_0)
+    \]
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Többváltozós analízis}
+  \framesubtitle{Deriváltós feladat}
+
+  \input{exercise/derivative}
+\end{frame}
+
+\subsection{Szélsőérték számítás}
+
+\begin{frame}
+  \frametitle{Többváltozós analízis}
+  \framesubtitle{Szélsőérték számítás I}
+
+  \begin{block}{Stacionárius pont -- szélsőérték létezésének szükséges feltétele}
+    Legyen $f : H \subset \mathbb R^n \rightarrow R$, $\rvec x_0 \in \mathrm{int}\, H$,
+    valamint $f$ parciális deriváltjai léteznek az $\rvec x_0$-ban, továbbá
+    $\partial_i f(\rvec x_0) = 0$ bármely $i \in {1; 2; \dots; n}$. Ekkor
+    $\rvec x_0$-t stacionárius pontnak hívjuk.
+  \end{block}
+
+  \begin{block}{Szélsőérték létezésének elégséges feltétele}
+    Hesse-mátrix felírása:
+    \def\arraystretch{1.25}
+    \[
+      \rmat H = \begin{bmatrix}
+        \partial^2_1 f          & \partial_2 \partial_1 f & \hdots & \partial_n \partial_1 f \\
+        \partial_1 \partial_2 f & \partial^2_2 f          & \hdots & \partial_n \partial_2 f \\
+        \vdots                  & \vdots                  & \ddots & \vdots                  \\
+        \partial_1 \partial_n f & \partial_2 \partial_n f & \hdots & \partial^2_n f          \\
+      \end{bmatrix}
+    \]
+    $\det \rmat H > 0$ -- lok. szé.
+    \hfill
+    $\det \rmat H = 0$ -- ?
+    \hfill
+    $\det \rmat H < 0$ -- nincs szé.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Többváltozós analízis}
+  \framesubtitle{Szélsőérték számítás II}
+
+  \begin{block}{Szélsőérték típusa a Hesse-mátrix alapján}
+    Képezzük a Hesse mátrix aldeterminánsait:
+    \def\arraystretch{1.25}
+    \[
+      H_1 = \begin{vmatrix}
+        \partial^2 f
+      \end{vmatrix}
+      \text,
+      \rmat \qquad
+      H_2 = \begin{vmatrix}
+        \partial^2_1 f          & \partial_2 \partial_1 f \\
+        \partial_1 \partial_2 f & \partial^2_2 f
+      \end{vmatrix}
+      \text,
+      \qquad
+      H_3 = \begin{vmatrix}
+        \partial^2_1 f          & \partial_2 \partial_1 f & \partial_3 \partial_1 f \\
+        \partial_1 \partial_2 f & \partial^2_2 f          & \partial_3 \partial_2 f \\
+        \partial_1 \partial_3 f & \partial_2 \partial_3 f & \partial^2_3 f
+      \end{vmatrix}
+    \]
+
+    \begin{itemize}
+      \item Lokális minimum -- ha mindegyik aldetermináns pozitív
+      \item Lokális maximum -- ha váltakozó előjelűek, valamint $H_1 < 0$
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Többváltozós analízis}
+  \framesubtitle{Szélsőérték számítás III}
+
+  \begin{block}{Feltételes szélsőérték, Lagrange-féle multiplikátor}
+    Egy $f$ függvénynek keressük a $g$ görbe mentén keressük a szélsőértékeit:
+    A feladatot ekkor
+    \[
+      F = f + \lambda g\text{-re}
+    \]
+    kell megoldanunk.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Többváltozós analízis}
+  \framesubtitle{Szélsőértékes feladatok}
+
+  \input{exercise/stationary}
+  \input{exercise/lagrange-multiplier}
+\end{frame}
+
+\subsection{Integrálszámítás}
+
+\begin{frame}
+  \frametitle{Többváltozós analízis}
+  \framesubtitle{Integrálszámításos feladatok}
+
+  \input{exercise/integral-basic}
+  \input{exercise/integral-area}
+\end{frame}

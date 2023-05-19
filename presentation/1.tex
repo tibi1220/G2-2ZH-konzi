@@ -1,0 +1,232 @@
+\section{Függvénysorozatok, függvénysorok}
+
+\subsection{Alapfogalmak}
+
+\begin{frame}
+  \frametitle{Függvénysorozatok, függvénysorok}
+  \framesubtitle{Függvénysorozatok I}
+
+  \begin{block}{Függvénysorozat}
+    Az $f_n : I \subset \mathbb R \rightarrow \mathbb R$ sorozatot
+    függvénysorozatnak nevezzük.
+  \end{block}
+
+  \begin{block}{Konvergencia}
+    Ha az $x_0 \in I$ pontban az $(f_n(x_0))$ számsorozat konvergens, akkor azt
+    mondjuk, hogy az $(f_n)$ függvénysorozat konvergens $x_0$-ban. A
+    konvergencia\-halmaz:
+    \[
+      H := \Big\{\;
+      x \;|\; x \in I \;\land\; (f_n) \text{ konvergens az } x \text{-ben}
+      \;\Big\}
+    \]
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Függvénysorozatok, függvénysorok}
+  \framesubtitle{Függvénysorozatok II}
+
+  \begin{block}{Pontonkénti konvergencia}
+    Legyen $f(x) := \displaystyle\lim_{n \rightarrow \infty} f_n(x)$, $x \in H$.
+    $f$-et az $(f_n)$ függvénysorozat határfüggvényének nevezzük. Azt mondjuk,
+    hogy $(f_n)$ függvénysorozat pontonként konvergál az $f$ határfüggvényhez
+    $H$-n, ha bármely $\varepsilon > 0$ esetén létezik $N(\varepsilon; x)$, hogy
+    $|f_n(x) − f(x)| < \varepsilon$, ha $n > N(\varepsilon; x)$.
+  \end{block}
+
+  \begin{block}{Egyenletes konvergencia}
+    Azt mondjuk, hogy $(f_n)$ egyenletesen konvergens az $E \subset H$ halmazon,
+    ha bármely $\varepsilon > 0$ esetén létezik $N(\varepsilon): |f_n(x) − f(x)|
+      < \varepsilon$, ha $n > N(\varepsilon)$ bármely $x \in E$ esetén.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Függvénysorozatok, függvénysorok}
+  \framesubtitle{Függvénysorok I}
+
+  \begin{block}{Függvénysor}
+    Legyen $f_n : I \subset \mathbb R \rightarrow \mathbb R$ függvénysorozat,
+    valamint $s_n = \sum f_n$. Az így előálló függvénysorozatot az $(f_n)$
+    függvénysorozatból képzett függvénysornak hívjuk és $\sum f_n$-nel jelöljük.
+  \end{block}
+
+  \begin{block}{Konvergencia}
+    A $\sum f_n$ függvénysor konvergens az $x_0$ pontban, ha az $(s_n)$
+    függvénysorozat konvergens az $x_0$ pontban.
+
+    A $\sum f_n$ függvénysor konvergens a $H \subset I$ halmazon, ha az $(s_n)$
+    függvénysorozat konvergens $H$-n.
+
+    A $\sum f_n$ függvénysor egyenletesen konvergens a $E \subset H$ halmazon, ha az
+    $(s_n)$ függvénysorozat egyenletesen konvergens $E$-n.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Függvénysorozatok, függvénysorok}
+  \framesubtitle{Függvénysorok II}
+
+  \begin{block}{Konvergencia kritériumok}
+    \begin{itemize}
+      \item Majoráns kritérium \hfill $\sum a_n < \sum b_n$
+      \item Minoráns kritérium \hfill $\sum b_n < \sum a_n$
+      \item Hányadosteszt \hfill $\lim (\sfrac{a_{n+1}}{a_{n}}) < 1$
+      \item Gyökteszt \hfill $\lim \sqrt[n]{a_n} < 1$
+      \item Integrál-kritérium \hfill $\sum_{n_0}^\infty f(n) \; \leftrightarrow \; \int_{n_0}^\infty f(t) \,\mathrm dt$
+      \item Leibnitz \hfill $\sum (-1)^n a_n \; \leftrightarrow \; (a_n)$ mon. cs. nullsorozat
+      \item Abszolút konvergencia \hfill ha $\sum |a_n|$ is konvergens
+      \item Feltételes konvergencia \hfill ha konvergens, de abszolút nem az
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Függvénysorozatok, függvénysorok}
+  \framesubtitle{Függvénysoros feladatok}
+
+  \input{exercise/power-series-convergence}
+\end{frame}
+
+\subsection{Hatványsorok}
+
+\begin{frame}
+  \frametitle{Függvénysorozatok, függvénysorok}
+  \framesubtitle{Hatványsorok}
+
+  \begin{block}{Hatványsor}
+    A $\sum a_n (x - x_0)$ alakú függvénysort hatványsornak nevezzük.
+    A hatványsor centruma $x_0$, $a_n$ pedig az $n$-edik együttható.
+  \end{block}
+
+  \begin{block}{Konvergencia sugár}
+    Egy hatványsor konvergencia sugara az alábbi képlettel számítható:
+    \[
+      r = \frac{1}{\limsup \sqrt[n]{|a_n|}}
+      \text,
+      \quad
+      \text{ vagy }
+      \quad
+      r = \frac{1}{\limsup{|\sfrac{a_{n+1}}{a_n}|} }
+      \text.
+    \]
+    \begin{itemize}
+      \item Az $x = x_0$ pontban biztosan konvergens,
+      \item Az $|x - x_0| < r$ tartományon abszolút konvergens,
+      \item Az $|x - x_0| > r$ tartományon divergens
+      \item Az $|x - x_0| = r$ pontokban külön meg kell vizsgálni.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Függvénysorozatok, függvénysorok}
+  \framesubtitle{Hatványsoros feladat}
+
+  \input{exercise/power-series-TF}
+\end{frame}
+
+\subsection{Taylor-sorok}
+
+\begin{frame}
+  \frametitle{Függvénysorozatok, függvénysorok}
+  \framesubtitle{Taylor-sorok}
+
+  \begin{block}{Taylor-polinom}
+    Legyen az $f : I \subset \mathbb R \rightarrow \mathbb R$ függvény legalább
+    $n$-szer differenciálható az $x_0 \in I$ pontban. Ekkor az $f$ függvény
+    $x_0$ körüli $n$-edik Taylor-polinomja:
+    \[
+      T_n(x)
+      = \sum_{k = 0}^n
+      \frac{f^{(k)}(x_0)}{k!}
+      (x - x_0)^k
+      \text.
+    \]
+  \end{block}
+
+  \begin{block}{Taylor-sor}
+    Legyen az $f : I \subset \mathbb R \rightarrow \mathbb R$ függvény
+    akárhányszor differenciálható az $x_0 \in I$ pontban. Ekkor az $f$ függvény
+    $x_0$ körüli Taylor-sora:
+    \[
+      T(x)
+      = \sum_{k = 0}^\infty
+      \frac{f^{(k)}(x_0)}{k!}
+      (x - x_0)^k
+      \text.
+    \]
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Függvénysorozatok, függvénysorok}
+  \framesubtitle{Taylor-soros feladatok}
+
+  \input{exercise/taylor-series-finite}
+  \input{exercise/taylor-series-infinite}
+\end{frame}
+
+\subsection{Fourier-sorok}
+
+\begin{frame}
+  \frametitle{Függvénysorozatok, függvénysorok}
+  \framesubtitle{Fourier-sorok I}
+
+  \begin{block}{Fourier-sor}
+    Legyen $f : \mathbb R \rightarrow \mathbb R$ egy $2p$ szerint periodikus
+    függvény, amely a $[0,2p]$ intervallumon Riemann-integrálható ($f \in
+      \mathcal R [0, 2p]$). Ekkor $f$ Fourier-során az alábbi trigonometrikus
+    sort értjük:
+    \[
+      F(x)
+      = a_0
+      + \sum_{k = 1}^\infty a_k \cos \left( \frac{k \pi x}{p} \right)
+      + \sum_{k = 1}^\infty b_k \sin \left( \frac{k \pi x}{p} \right)
+    \]
+    Ha a függvény $2 \pi$ szerint periodikus:
+    \[
+      F(x)
+      = a_0
+      + \sum_{n = 1}^\infty a_n \cos (nx)
+      + \sum_{n = 1}^\infty b_n \sin (nx)
+    \]
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Függvénysorozatok, függvénysorok}
+  \framesubtitle{Fourier-sorok II}
+
+  \begin{block}{Fourier együtthatók számítása ($2\pi$ / $2p$ periodicitás esetén)}
+    \begin{alignat*}{9}
+      a_0 & =
+      \frac{1}{2\pi} \int_0^{2\pi} f(x) \, \mathrm d x
+          &   & a_0
+          &   & =
+      \frac{1}{2p} \int_0^{2p} f(x) \, \mathrm d x
+      \\
+      a_n & =
+      \frac{1}{\pi} \int_0^{2\pi} f(x) \cos(n x) \, \mathrm d x
+      \hspace{2.2cm}
+          &   & a_k
+          &   & =
+      \frac{1}{p} \int_0^{2p} f(x) \cos \left( \frac{k \pi x}{p} \right) \, \mathrm d x
+      \\
+      b_n & =
+      \frac{1}{\pi} \int_0^{2\pi} f(x) \sin(n x) \, \mathrm d x
+          &   & b_k
+          &   & =
+      \frac{1}{p} \int_0^{2p} f(x) \sin \left( \frac{k \pi x}{p} \right) \, \mathrm d x
+    \end{alignat*}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Függvénysorozatok, függvénysorok}
+  \framesubtitle{Fourier-soros feladatok}
+
+  \input{exercise/fourier-trig.tex}
+  \input{exercise/fourier-square.tex}
+\end{frame}

@@ -1,0 +1,55 @@
+\usepackage[magyar]{babel}
+
+\title{Matematika G2 Második Zárthelyi Konzultáció}
+\author{Sándor Tibor}
+\date{\today}
+
+\usepackage{amsmath,amssymb}
+\usepackage{unicode-math}
+\usepackage[table]{xcolor}
+\usepackage{array}
+\usepackage{multicol}
+\usepackage{icomma}
+\usepackage{tabto}
+\usepackage{hyperref}
+\usepackage{xfrac}
+\usepackage{nccmath}
+\usepackage{derivative}
+
+\newcolumntype{x}[1]{>{\centering\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{X}[1]{>{$}x{#1}<{$}}
+  \newcolumntype{C}{>{$}c<{$}}
+
+\newenvironment{bamatrix}[2]{\left[\begin{array}{*{#1}{X{#2}}}}{\end{array}\right]}
+\newcommand{\gcc}[1]{\cellcolor{gray!25}{#1}}
+
+\newcommand\iu{\mathbf{i}}
+\newcommand{\nvec}{\text{\textbf{\textit{0}}}}
+\newcommand\imat{{\mathbb{E}}}
+\newcommand\nmat{{\mathbb{O}}}
+\newcommand{\rvec}[1]{\mathbfit{#1}}
+\newcommand{\uvec}[1]{\widehat{\mathbfit{#1}}}
+\newcommand{\rmat}[1]{\mathbf{#1}}
+\newcommand{\edet}[1]{\det \begin{pmatrix} \phantom{i}\dots & #1 & \dots\phantom{i} \end{pmatrix}}
+
+\DeclareMathOperator{\rg}{rg}
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\defect}{def}
+\let\dim\relax
+\DeclareMathOperator{\dim}{dim}
+\DeclareMathOperator{\sgn}{sgn}
+
+\DeclareMathOperator\arccot{arccot}
+\DeclareMathOperator\arsinh{arsinh}
+\DeclareMathOperator\arcosh{arcosh}
+\DeclareMathOperator\artanh{artanh}
+\DeclareMathOperator\arcoth{arcoth}
+
+\DeclareMathOperator\grad{grad}
+
+\usepackage[stixtwo]{fontsetup}
+
+\usepackage{tikz, pgfplots}
+\usetikzlibrary{calc, matrix, patterns, patterns.meta}
+\pgfplotsset{compat=1.18}
+\pgfkeys{/pgf/plot/gnuplot call={cd build && gnuplot}}
