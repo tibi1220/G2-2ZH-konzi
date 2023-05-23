@@ -19,7 +19,7 @@ jobs:
         with:
           args: -r .latexmkrc
           root_file: |
-            handout.tex
+            solutions.tex
             presentation.tex
             exercises.tex
 
