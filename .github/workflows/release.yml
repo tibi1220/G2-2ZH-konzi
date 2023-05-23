@@ -1,0 +1,100 @@
+name: Build and Release LaTeX Document
+on: [push]
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - name: Get Current Date
+        id: get_date
+        run: echo "date=$(date +'%Y-%m-%d--%H-%M-%S')" >> $GITHUB_OUTPUT
+
+      - name: Checkout repo
+        id: checkout_repo
+        uses: actions/checkout@v3
+
+      - name: Compile LaTeX Documents
+        id: compile_latex
+        uses: ktht/latex-action@v3
+        with:
+          args: -r .latexmkrc
+          root_file: |
+            handout.tex
+            presentation.tex
+            exercises.tex
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.get_date.outputs.date }}
+          draft: false
+          prerelease: false
+
+      - name: Upload Presentation to Release
+        id: upload_presentation_pdf
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./build/presentation.pdf
+          asset_name: G2-2ZH-prezentacio.pdf
+          asset_content_type: application/pdf
+
+      - name: Upload Presentation Logfile to Release
+        id: upload_presentation_log
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./build/presentation.log
+          asset_name: presentation.log
+          asset_content_type: text/log
+
+      - name: Upload Solutions to Release
+        id: upload_solutions_pdf
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./build/solutions.pdf
+          asset_name: G2-2ZH-kidolgozas.pdf
+          asset_content_type: application/pdf
+
+      - name: Upload Solutions Logfile to Release
+        id: upload_solutions_log
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./build/solutions.log
+          asset_name: solutions.log
+          asset_content_type: text/log
+
+      - name: Upload Exercises to Release
+        id: upload_exercises_pdf
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./build/exercises.pdf
+          asset_name: G2-1ZH-feladatok.pdf
+          asset_content_type: application/pdf
+
+      - name: Upload Exercises Logfile to Release
+        id: upload_exercises_log
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./build/exercises.log
+          asset_name: exercises.log
+          asset_content_type: text/log
