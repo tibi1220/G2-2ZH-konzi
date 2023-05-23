@@ -85,7 +85,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./build/exercises.pdf
-          asset_name: G2-1ZH-feladatok.pdf
+          asset_name: G2-2ZH-feladatok.pdf
           asset_content_type: application/pdf
 
       - name: Upload Exercises Logfile to Release
