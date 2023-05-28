@@ -48,7 +48,7 @@
 
   \begin{block}{Határérték}
     Legyen $\rvec f: \mathbb R^n \rightarrow \mathbb R^k$ leképezés. Azt
-    mondjuk, hogy az $\rvec f$ Határértéke az $\rvec a \in \mathbb R^n$ pontban
+    mondjuk, hogy az $\rvec f$ határértéke az $\rvec a \in \mathbb R^n$ pontban
     $\rvec A \in \mathbb R^k$, ha $\rvec A$ tetszőleges $\varepsilon$ sugarú
     gömbkörnyezetéhez létezik $\rvec a$-nak olyan $\sigma(\varepsilon)$ sugarú
     gömbkörnyezete, hogy:
@@ -319,11 +319,11 @@
         \partial_1 \partial_n f & \partial_2 \partial_n f & \hdots & \partial^2_n f          \\
       \end{bmatrix}
     \]
-    $\det \rmat H > 0$ -- lok. szé.
+    $\det \rmat H > 0$ -- szélsőérték
     \hfill
     $\det \rmat H = 0$ -- ?
     \hfill
-    $\det \rmat H < 0$ -- nincs szé.
+    $\det \rmat H < 0$ -- nyeregpont
   \end{block}
 \end{frame}
 
@@ -336,7 +336,7 @@
     \def\arraystretch{1.25}
     \[
       H_1 = \begin{vmatrix}
-        \partial^2 f
+        \partial^2_1 f
       \end{vmatrix}
       \text,
       \rmat \qquad
@@ -354,8 +354,8 @@
     \]
 
     \begin{itemize}
-      \item Lokális minimum -- ha mindegyik aldetermináns pozitív
-      \item Lokális maximum -- ha váltakozó előjelűek, valamint $H_1 < 0$
+      \item Lokális minimum -- ha mindegyik aldetermináns pozitív.
+      \item Lokális maximum -- ha váltakozó előjelűek. %  valamint $H_1 < 0$
     \end{itemize}
   \end{block}
 

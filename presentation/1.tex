@@ -96,25 +96,25 @@
   \framesubtitle{Hatványsorok}
 
   \begin{block}{Hatványsor}
-    A $\sum a_n (x - x_0)$ alakú függvénysort hatványsornak nevezzük.
+    A $\sum a_n (x - x_0)^n$ alakú függvénysort hatványsornak nevezzük.
     A hatványsor centruma $x_0$, $a_n$ pedig az $n$-edik együttható.
   \end{block}
 
-  \begin{block}{Konvergencia sugár}
-    Egy hatványsor konvergencia sugara az alábbi képlettel számítható:
+  \begin{block}{Konvergencia-sugár}
+    Egy hatványsor konvergencia-sugara az alábbi képlettel számítható:
     \[
-      r = \frac{1}{\limsup \sqrt[n]{|a_n|}}
+      r = \frac{1}{\displaystyle\limsup_{n \rightarrow \infty} \sqrt[n]{|a_n|}}
       \text,
       \quad
       \text{ vagy }
       \quad
-      r = \frac{1}{\limsup{|\sfrac{a_{n+1}}{a_n}|} }
+      r = \frac{1}{\displaystyle\limsup_{n \rightarrow \infty} \left|\sfrac{a_{n+1}}{a_n}\right| }
       \text.
     \]
     \begin{itemize}
-      \item Az $x = x_0$ pontban biztosan konvergens,
+      \item Az $\phantom{|}x = x_0\phantom{|}$ pontban biztosan konvergens,
       \item Az $|x - x_0| < r$ tartományon abszolút konvergens,
-      \item Az $|x - x_0| > r$ tartományon divergens
+      \item Az $|x - x_0| > r$ tartományon divergens,
       \item Az $|x - x_0| = r$ pontokban külön meg kell vizsgálni.
     \end{itemize}
   \end{block}
@@ -164,8 +164,8 @@
   \frametitle{Függvénysorozatok, függvénysorok}
   \framesubtitle{Taylor-soros feladatok}
 
-  \input{exercise/taylor-series-finite}
   \input{exercise/taylor-series-infinite}
+  \input{exercise/taylor-series-finite}
 \end{frame}
 
 \subsection{Fourier-sorok}
@@ -176,8 +176,8 @@
 
   \begin{block}{Fourier-sor}
     Legyen $f : \mathbb R \rightarrow \mathbb R$ egy $2p$ szerint periodikus
-    függvény, amely a $[0,2p]$ intervallumon Riemann-integrálható ($f \in
-      \mathcal R [0, 2p]$). Ekkor $f$ Fourier-során az alábbi trigonometrikus
+    függvény, amely a $[0;2p]$ intervallumon Riemann-integrálható ($f \in
+      \mathcal R [0; 2p]$). Ekkor $f$ Fourier-során az alábbi trigonometrikus
     sort értjük:
     \[
       F(x)
@@ -220,6 +220,27 @@
           &   & =
       \frac{1}{p} \int_0^{2p} f(x) \sin \left( \frac{k \pi x}{p} \right) \, \mathrm d x
     \end{alignat*}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Függvénysorozatok, függvénysorok}
+  \framesubtitle{Fourier-sorok III}
+
+  \begin{block}{Hasznos trigonometrikus összefüggések}
+    \begin{center}
+      \def\arraystretch{1.1}
+      \begin{tabular}[t]{ X{5cm} X{5cm} }
+        \multicolumn{2}{ C }{\cos^2 x + \sin^2 x = 1}                          \\[2mm]
+        \sin 2x = 2 \sin x \cos x         & \cos 2x = \cos^2 x - \sin^2 x      \\[2mm]
+        \sin^2 x = \dfrac{1 - \cos 2x}{2} & \cos^2 x = \dfrac{1 + \cos 2x}{2}  \\[4mm]
+        \multicolumn{2}{ C }{\sin (t \pm s) = \sin t \cos s \pm \cos t \sin s} \\[1mm]
+        \multicolumn{2}{ C }{\cos (t \pm s) = \cos t \cos s \mp \sin t \sin s} \\[1mm]
+        \multicolumn{2}{ C }{2 \sin t \sin s = \cos(t - s) - \cos(t + s)}      \\[1mm]
+        \multicolumn{2}{ C }{2 \cos t \cos s = \cos(t - s) + \cos(t + s)}      \\[1mm]
+        \multicolumn{2}{ C }{2 \sin t \cos s = \sin(t - s) + \sin(t + s)}      \\[1mm]
+      \end{tabular}
+    \end{center}
   \end{block}
 \end{frame}
 
